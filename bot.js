@@ -38,12 +38,12 @@ client.on("messageCreate", async (msg) => {
 						msg.channel.send(`Hiiyaaa..!! Let's take a break and HYDRATE.`)
 						console.log(`water`)
 					},
-					args * 60000,
+					args[0] * 3600000,
 					setTimeout(() => {
 						clearInterval(hydrateTimerId)
 						msg.channel.send(`Hope you drank enough water today :)`)
 						console.log(`done`)
-					}, args * 5 * 60000)
+					}, args[1] * 3600000)
 				)
 			}
 
@@ -56,7 +56,7 @@ client.on("messageCreate", async (msg) => {
 		// checking for the COMMAND command
 		if (CMD === "commands" || CMD === "command") {
 			msg.channel.send(
-				`Hey ${msg.author}.. Thanks for asking about the commands. **_$hydrate_** and **_$stretch_** are the ones you'd use with me.`
+				`Hey ${msg.author}.. Thanks for asking about the commands. **_$hydrate_** (or **_$hydrate <interval in hrs> <duration in hrs>_**) and **_$stretch_** are the ones you'd use with me.`
 			)
 		}
 		if (CMD === "introduce" || CMD === "intro") {
