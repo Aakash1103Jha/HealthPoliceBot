@@ -4,12 +4,6 @@ const { Client, Intents } = require("discord.js")
 const client = new Client({ intents: [Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILDS] })
 const PREFIX = "$"
 
-const hydrateTimer = (interval, reply) => {
-	const hydrateTimerId = setInterval(() => {
-		console.log(`hello`)
-	}, interval * 1000)
-}
-
 client.on("ready", () => {
 	console.log(`Logged in as ${client.user.tag} :)`)
 })
