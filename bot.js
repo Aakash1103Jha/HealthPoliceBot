@@ -4,6 +4,12 @@ const { Client, Intents } = require("discord.js")
 const client = new Client({ intents: [Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILDS] })
 const PREFIX = "$"
 
+const hydrateTimer = (interval, reply) => {
+	const hydrateTimerId = setInterval(() => {
+		console.log(`hello`)
+	}, interval * 1000)
+}
+
 client.on("ready", () => {
 	console.log(`Logged in as ${client.user.tag} :)`)
 })
@@ -24,7 +30,24 @@ client.on("messageCreate", async (msg) => {
 
 		// checking for HYDRATE command
 		if (CMD === "hydrate") {
-			msg.channel.send(`Hiiyaaa..!! Let's take a break and HYDRATE.`)
+			if (args.length === 0) {
+				msg.channel.send(`Hiiyaaa..!! Let's take a break and HYDRATE.`)
+			} else {
+				const hydrateTimerId = setInterval(
+					() => {
+						msg.channel.send(`Hiiyaaa..!! Let's take a break and HYDRATE.`)
+						console.log(`water`)
+					},
+					args * 60000,
+					setTimeout(() => {
+						clearInterval(hydrateTimerId)
+						msg.channel.send(`Hope you drank enough water today :)`)
+						console.log(`done`)
+					}, args * 5 * 60000)
+				)
+			}
+
+			// msg.channel.send(`Hiiyaaa..!! Let's take a break and HYDRATE.`)
 		}
 		// checking for STRETCH command
 		if (CMD === "stretch") {
@@ -44,4 +67,4 @@ client.on("messageCreate", async (msg) => {
 	}
 })
 
-client.login(process.env.TOKEN)
+client.login(process.env.NEW_TOKEN)
