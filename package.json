@@ -1,0 +1,22 @@
+{
+  "name": "healthpolicebot",
+  "version": "1.0.0",
+  "description": "This is a discord bot that reminds users to stretch and stay hydrated.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord",
+    "health",
+    "javascript",
+    "nodejs"
+  ],
+  "author": "Aakash Jha",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "13.1.0",
+    "dotenv": "10.0.0",
+    "nodemon": "2.0.12"
+  }
+}
