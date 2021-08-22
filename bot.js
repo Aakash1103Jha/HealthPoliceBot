@@ -1,3 +1,8 @@
+// Author: Aakash Jha
+// Version: 1.0.0
+// Created on: 21/08/21
+// Description: Entry point for the HealthPolice Bot
+
 require("dotenv/config")
 
 const { Client, Intents } = require("discord.js")
